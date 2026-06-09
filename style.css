@@ -28,41 +28,140 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* 难度选择面板 */
+.difficulty-panel {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.difficulty-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.difficulty-btn {
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1em;
+    min-height: 100px;
+    justify-content: center;
+}
+
+.difficulty-btn:hover {
+    border-color: #667eea;
+    background: #f0f0ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.difficulty-btn:active {
+    transform: translateY(-1px);
+}
+
+.difficulty-name {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #333;
+}
+
+.difficulty-desc {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.difficulty-btn[data-difficulty="easy"] .difficulty-name {
+    color: #4CAF50;
+}
+
+.difficulty-btn[data-difficulty="medium"] .difficulty-name {
+    color: #2196F3;
+}
+
+.difficulty-btn[data-difficulty="hard"] .difficulty-name {
+    color: #FF9800;
+}
+
+.difficulty-btn[data-difficulty="extreme"] .difficulty-name {
+    color: #F44336;
+}
+
+/* 游戏面板 */
+.game-panel {
+    animation: slideIn 0.3s ease-out;
+}
+
 .scoreboard {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 20px;
-    gap: 40px;
+    gap: 20px;
 }
 
-.player-score,
-.computer-score {
+.ai-score,
+.player-score {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 1.2em;
     color: #333;
+    min-width: 100px;
 }
 
-.player-score span:last-child,
-.computer-score span:last-child {
+.ai-score span:last-child,
+.player-score span:last-child {
     font-size: 2.5em;
     font-weight: bold;
     margin-top: 5px;
 }
 
-.player-score span:last-child {
+.ai-score span:last-child {
     color: #667eea;
 }
 
-.computer-score span:last-child {
+.player-score span:last-child {
     color: #764ba2;
+}
+
+.difficulty-display {
+    font-size: 1.1em;
+    color: #666;
+    font-weight: bold;
+    padding: 8px 15px;
+    background: #f0f0f0;
+    border-radius: 5px;
 }
 
 .game-info {
     margin-bottom: 15px;
     color: #666;
     font-size: 0.95em;
+    line-height: 1.5;
 }
 
 #pongCanvas {
@@ -80,6 +179,7 @@ h1 {
     gap: 15px;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 button {
@@ -95,6 +195,8 @@ button {
 #startBtn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
+    flex: 1;
+    min-width: 120px;
 }
 
 #startBtn:hover {
@@ -109,6 +211,8 @@ button {
 #resetBtn {
     background: #ff6b6b;
     color: white;
+    flex: 1;
+    min-width: 120px;
 }
 
 #resetBtn:hover {
@@ -119,4 +223,52 @@ button {
 
 #resetBtn:active {
     transform: translateY(0);
+}
+
+#changeDifficultyBtn {
+    background: #4CAF50;
+    color: white;
+    flex: 1;
+    min-width: 120px;
+}
+
+#changeDifficultyBtn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+#changeDifficultyBtn:active {
+    transform: translateY(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .difficulty-buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #pongCanvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .game-controls {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
 }
