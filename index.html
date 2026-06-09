@@ -9,26 +9,57 @@
 <body>
     <div class="container">
         <h1>PONG GAME</h1>
-        <div class="scoreboard">
-            <div class="player-score">
-                <span>Player</span>
-                <span id="playerScore">0</span>
-            </div>
-            <div class="computer-score">
-                <span>Computer</span>
-                <span id="computerScore">0</span>
-            </div>
-        </div>
         
-        <div class="game-info">
-            <p>Controls: Move mouse vertically or use Arrow Keys (Up/Down)</p>
+        <!-- 难度选择面板 -->
+        <div id="difficultyPanel" class="difficulty-panel">
+            <h2>选择游戏难度</h2>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn" data-difficulty="easy">
+                    <span class="difficulty-name">简单</span>
+                    <span class="difficulty-desc">AI 反应慢</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="medium">
+                    <span class="difficulty-name">中等</span>
+                    <span class="difficulty-desc">AI 反应正常</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="hard">
+                    <span class="difficulty-name">困难</span>
+                    <span class="difficulty-desc">AI 反应快</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="extreme">
+                    <span class="difficulty-name">极难</span>
+                    <span class="difficulty-desc">AI 几乎无敌</span>
+                </button>
+            </div>
         </div>
 
-        <canvas id="pongCanvas" width="800" height="400"></canvas>
+        <!-- 游戏界面 -->
+        <div id="gamePanel" class="game-panel" style="display: none;">
+            <div class="scoreboard">
+                <div class="ai-score">
+                    <span>AI</span>
+                    <span id="aiScore">0</span>
+                </div>
+                <div class="difficulty-display">
+                    <span id="difficultyDisplay">中等</span>
+                </div>
+                <div class="player-score">
+                    <span>Player</span>
+                    <span id="playerScore">0</span>
+                </div>
+            </div>
+            
+            <div class="game-info">
+                <p>🖱️ 鼠标移动控制 | ⬆️⬇️⬅️➡️ 或 WASD 移动球拍</p>
+            </div>
 
-        <div class="game-controls">
-            <button id="startBtn">Start Game</button>
-            <button id="resetBtn">Reset Score</button>
+            <canvas id="pongCanvas" width="800" height="400"></canvas>
+
+            <div class="game-controls">
+                <button id="startBtn">Start Game</button>
+                <button id="resetBtn">Reset Score</button>
+                <button id="changeDifficultyBtn">更换难度</button>
+            </div>
         </div>
     </div>
 
