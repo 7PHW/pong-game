@@ -1,5 +1,5 @@
 1. 游戏链接
-- ✅ 提供在线游玩链接：`https://7phw.github.io/pong-game/`
+- ✅ 提供在线游玩链接：https://7phw.github.io/pong-game/
 - 用户可以直接点击链接进行游戏
 
 2. 详细介绍
